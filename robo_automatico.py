@@ -282,3 +282,12 @@ def buscar_oferta_ao_vivo(semestre_alvo, callback_progresso=None):
         json.dump(oferta_total, f, indent=4, ensure_ascii=False)
         
     return oferta_total
+
+if __name__ == "__main__":
+    print("🤖 Iniciando o robô...")
+    
+    # A função correta é buscar_oferta_ao_vivo
+    # E você precisa dizer qual semestre quer buscar (ex: "2025/1" ou "2025/2")
+    buscar_oferta_ao_vivo("2025/2") 
+    
+    print("✅ Processo finalizado! Arquivo salvo.")

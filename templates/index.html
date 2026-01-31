@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Eng. Computação - UFMT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        :root {
+            --primary-color: #4e54c8;
+            --secondary-color: #8f94fb;
+            --text-dark: #2d3436;
+            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --glass-bg: rgba(255, 255, 255, 0.95);
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-gradient); min-height: 100vh; display: flex; flex-direction: column; }
+        .navbar { padding-top: 25px; padding-bottom: 20px; flex-shrink: 0; }
+        .navbar-brand { font-weight: 800; color: var(--text-dark) !important; font-size: 1.5rem; }
+        .hero-section { flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .main-card { background: var(--glass-bg); border-radius: 24px; box-shadow: 0 20px 60px rgba(78, 84, 200, 0.15); overflow: hidden; width: 100%; max-width: 1000px; }
+        .left-panel { padding: 40px; }
+        .right-panel { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; padding: 40px; position: relative; overflow: hidden; }
+        .right-panel::before { content: ''; position: absolute; top: -60px; right: -60px; width: 250px; height: 250px; background: rgba(255,255,255,0.1); border-radius: 50%; }
+        
+        /* Estilos do Upload */
+        .upload-zone { border: 2px dashed #a4b0be; border-radius: 16px; padding: 30px 20px; text-align: center; cursor: pointer; transition: all 0.3s; background: #f8f9fa; position: relative; margin-top: 20px;}
+        .upload-zone:hover { border-color: var(--primary-color); background: #eff0ff; transform: translateY(-2px); }
+        .file-input { position: absolute; width: 100%; height: 100%; top: 0; left: 0; opacity: 0; cursor: pointer; }
+        
+        /* Estilos do Painel do Robô */
+        .robo-panel { background: #f1f2f6; border-radius: 16px; padding: 20px; margin-bottom: 20px; border: 1px solid #dcdde1; }
+        .progress { height: 10px; border-radius: 5px; background-color: #dcdde1; }
+        .progress-bar { background-color: var(--primary-color); transition: width 0.5s ease; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar container">
+        <a class="navbar-brand" href="#"><i class="fa-solid fa-microchip me-2" style="color: var(--primary-color)"></i> EngComp<span style="color: var(--primary-color)">IA</span></a>
+    </nav>
+
+    <section class="hero-section container">
+        <div class="main-card d-flex flex-column flex-md-row">
+            
+            <div class="left-panel col-md-7" x-data="appData()">
+                
+                <h2 class="fw-bold text-dark mb-1">Grade Inteligente</h2>
+                <p class="text-muted small mb-4">Engenharia de Computação - UFMT</p>
+
+                <div class="robo-panel">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h6 class="fw-bold mb-0"><i class="fa-solid fa-rotate me-2"></i>Oferta de Turmas</h6>
+                        <span class="badge bg-success" x-show="roboConcluido">Atualizado</span>
+                        <span class="badge bg-secondary" x-show="!roboConcluido && !roboRodando">Offline</span>
+                        <span class="badge bg-warning text-dark" x-show="roboRodando">Atualizando...</span>
+                    </div>
+
+                    <div x-show="!roboRodando && !roboConcluido">
+                        <p class="small text-muted mb-2">Busque as turmas ao vivo do site da UFMT.</p>
+                        <button @click="iniciarRobo()" class="btn btn-outline-primary btn-sm w-100 fw-bold">
+                            <i class="fa-solid fa-play me-1"></i> Atualizar Agora (2025/2)
+                        </button>
+                    </div>
+
+                    <div x-show="roboRodando || roboConcluido" x-transition>
+                        <div class="d-flex justify-content-between small text-muted mb-1">
+                            <span x-text="roboMensagem">Aguardando...</span>
+                            <span x-text="roboPorcentagem + '%'">0%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" :style="'width: ' + roboPorcentagem + '%'"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div x-show="true" class="mt-4"> <h6 class="fw-bold"><i class="fa-solid fa-file-pdf me-2"></i>Seu Histórico</h6>
+                    
+                    <form action="/upload" method="post" enctype="multipart/form-data" id="uploadForm">
+                        <div class="upload-zone" id="dropZone">
+                            <input type="file" name="file" class="file-input" id="fileInput" accept=".pdf" required>
+                            <i class="fa-solid fa-cloud-arrow-up fa-2x text-primary mb-2"></i>
+                            <div id="fileName" class="fw-bold small text-dark">Arraste seu PDF aqui</div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 mt-3 py-2 fw-bold shadow-sm">
+                            <i class="fa-solid fa-wand-magic-sparkles me-2"></i> Gerar Grade
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="right-panel col-md-5 d-flex flex-column justify-content-center">
+                <h3 class="fw-bold mb-4">Passo a Passo</h3>
+                
+                <div class="d-flex align-items-center mb-4">
+                    <div class="bg-white bg-opacity-25 p-3 rounded-3 me-3"><i class="fa-solid fa-robot fa-lg"></i></div>
+                    <div>
+                        <strong>1. Atualize a Oferta</strong>
+                        <div class="small opacity-75">O robô busca as turmas disponíveis agora.</div>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center mb-4">
+                    <div class="bg-white bg-opacity-25 p-3 rounded-3 me-3"><i class="fa-solid fa-file-arrow-up fa-lg"></i></div>
+                    <div>
+                        <strong>2. Envie o Histórico</strong>
+                        <div class="small opacity-75">Analisamos o que você já cursou.</div>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <div class="bg-white bg-opacity-25 p-3 rounded-3 me-3"><i class="fa-solid fa-calendar-check fa-lg"></i></div>
+                    <div>
+                        <strong>3. Receba a Grade</strong>
+                        <div class="small opacity-75">Sugestão sem conflitos de horário.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center py-4 text-muted small">
+        © 2026 EngCompIA • Desenvolvido por <strong>Marina Martins</strong>
+    </footer>
+
+    <script>
+        function appData() {
+            return {
+                roboRodando: false,
+                roboConcluido: false,
+                roboMensagem: 'Pronto para iniciar',
+                roboPorcentagem: 0,
+                intervalo: null,
+
+                iniciarRobo() {
+                    this.roboRodando = true;
+                    this.roboConcluido = false;
+                    this.roboPorcentagem = 0;
+                    
+                    // Dispara o robô no backend
+                    fetch('/iniciar_robo', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ semestre: '2025/2' })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        this.monitorarProgresso();
+                    });
+                },
+
+                monitorarProgresso() {
+                    this.intervalo = setInterval(() => {
+                        fetch('/status_progresso')
+                        .then(res => res.json())
+                        .then(status => {
+                            this.roboRodando = status.rodando;
+                            this.roboMensagem = status.mensagem;
+                            this.roboPorcentagem = status.porcentagem;
+                            this.roboConcluido = status.concluido;
+
+                            if (!status.rodando && status.concluido) {
+                                clearInterval(this.intervalo);
+                            }
+                        });
+                    }, 1000); // Consulta a cada 1 segundo
+                }
+            }
+        }
+
+        // Lógica visual do Upload
+        const fileInput = document.getElementById('fileInput');
+        const fileNameDisplay = document.getElementById('fileName');
+        const dropZone = document.getElementById('dropZone');
+
+        fileInput.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                fileNameDisplay.innerHTML = `<span class="text-success"><i class="fa-solid fa-check-circle"></i> ${this.files[0].name}</span>`;
+                dropZone.style.background = "#e6fffa";
+                dropZone.style.borderColor = "#00bfa5";
+            }
+        });
+    </script>
+</body>
+</html>

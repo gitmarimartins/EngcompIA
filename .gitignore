@@ -1,0 +1,20 @@
+# Ignorar arquivos temporários do Python
+__pycache__/
+*.pyc
+
+# Ignorar ambiente virtual (se você criou um)
+venv/
+env/
+.env
+
+# Ignorar PDFs dos alunos (SEGURANÇA!)
+uploads/
+*.pdf
+
+# Ignorar arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar o banco de dados de feedback LOCAL (para não sobrescrever o do servidor)
+# Se quiser subir um vazio na primeira vez, remova a linha abaixo
+# dados/feedback.json

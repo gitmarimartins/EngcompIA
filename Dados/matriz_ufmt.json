@@ -1,0 +1,314 @@
+[
+    {
+        "codigo": "114300004",
+        "nome": "Cálculo I",
+        "semestre_ideal": 1,
+        "pre_requisitos": []
+    },
+    {
+        "codigo": "114300023",
+        "nome": "Algoritmos e Estruturas de Dados I",
+        "semestre_ideal": 1,
+        "pre_requisitos": []
+    },
+    {
+        "codigo": "114300037",
+        "nome": "Computação e Sociedade",
+        "semestre_ideal": 1,
+        "pre_requisitos": []
+    },
+    {
+        "codigo": "114300002",
+        "nome": "Língua Portuguesa: Leitura e Redação",
+        "semestre_ideal": 1,
+        "pre_requisitos": []
+    },
+    {
+        "codigo": "114300060",
+        "nome": "Fundamentos de Matemática Elementar",
+        "semestre_ideal": 1,
+        "pre_requisitos": []
+    },
+    {
+        "codigo": "114300034",
+        "nome": "Metodologia Científica em Computação",
+        "semestre_ideal": 1,
+        "pre_requisitos": []
+    },
+    {
+        "codigo": "114100014",
+        "nome": "Química Geral",
+        "semestre_ideal": 1,
+        "pre_requisitos": []
+    },
+    {
+        "codigo": "114100015",
+        "nome": "Química Geral Experimental",
+        "semestre_ideal": 1,
+        "pre_requisitos": []
+    },
+    {
+        "codigo": "114300005",
+        "nome": "Cálculo II",
+        "semestre_ideal": 2,
+        "pre_requisitos": ["114300004"]
+    },
+    {
+        "codigo": "114300009",
+        "nome": "Física I",
+        "semestre_ideal": 2,
+        "pre_requisitos": ["114300004"]
+    },
+    {
+        "codigo": "114300010",
+        "nome": "Física Experimental I",
+        "semestre_ideal": 2,
+        "pre_requisitos": ["114300004"]
+    },
+    {
+        "codigo": "114300024",
+        "nome": "Algoritmos e Estruturas de Dados II",
+        "semestre_ideal": 2,
+        "pre_requisitos": ["114300023"]
+    },
+    {
+        "codigo": "114300006",
+        "nome": "Álgebra Linear",
+        "semestre_ideal": 2,
+        "pre_requisitos": []
+    },
+    {
+        "codigo": "114300003",
+        "nome": "Geometria Analítica",
+        "semestre_ideal": 2,
+        "pre_requisitos": []
+    },
+    {
+        "codigo": "114300014",
+        "nome": "Sistemas Digitais",
+        "semestre_ideal": 2,
+        "pre_requisitos": []
+    },
+    {
+        "codigo": "114100007",
+        "nome": "Cálculo III",
+        "semestre_ideal": 3,
+        "pre_requisitos": ["114300004"]
+    },
+    {
+        "codigo": "114300062",
+        "nome": "Física III",
+        "semestre_ideal": 3,
+        "pre_requisitos": ["114300004"]
+    },
+    {
+        "codigo": "114300013",
+        "nome": "Física Experimental III",
+        "semestre_ideal": 3,
+        "pre_requisitos": ["114300004"]
+    },
+    {
+        "codigo": "114200314",
+        "nome": "Algoritmos e Estruturas de Dados III",
+        "semestre_ideal": 3,
+        "pre_requisitos": ["114300024"]
+    },
+    {
+        "codigo": "114200325",
+        "nome": "Programação Orientada a Objetos",
+        "semestre_ideal": 3,
+        "pre_requisitos": ["114300024"]
+    },
+    {
+        "codigo": "114300008",
+        "nome": "Probabilidade e Estatística",
+        "semestre_ideal": 3,
+        "pre_requisitos": ["114300004"]
+    },
+    {
+        "codigo": "114300007",
+        "nome": "Matemática Discreta",
+        "semestre_ideal": 3,
+        "pre_requisitos": []
+    },
+    {
+        "codigo": "114200313",
+        "nome": "Organização de Computadores",
+        "semestre_ideal": 3,
+        "pre_requisitos": ["114300023"]
+    },
+    {
+        "codigo": "114300066",
+        "nome": "Banco de Dados I",
+        "semestre_ideal": 4,
+        "pre_requisitos": ["114300024"]
+    },
+    {
+        "codigo": "114200331",
+        "nome": "Sistemas Operacionais",
+        "semestre_ideal": 4,
+        "pre_requisitos": ["114200313"]
+    },
+    {
+        "codigo": "114200343",
+        "nome": "Redes de Computadores",
+        "semestre_ideal": 4,
+        "pre_requisitos": []
+    },
+    {
+        "codigo": "114200344",
+        "nome": "Teoria da Computação",
+        "semestre_ideal": 4,
+        "pre_requisitos": ["114300007"]
+    },
+    {
+        "codigo": "114200338",
+        "nome": "Projeto e Análise de Algoritmos",
+        "semestre_ideal": 4,
+        "pre_requisitos": ["114200314"]
+    },
+    {
+        "codigo": "114200311",
+        "nome": "Circuitos Elétricos",
+        "semestre_ideal": 4,
+        "pre_requisitos": ["114300004"]
+    },
+    {
+        "codigo": "114200328",
+        "nome": "Introdução à Engenharia de Software",
+        "semestre_ideal": 5,
+        "pre_requisitos": ["114300024"]
+    },
+    {
+        "codigo": "114300030",
+        "nome": "Inteligência Artificial",
+        "semestre_ideal": 5,
+        "pre_requisitos": ["114300023", "114300004"]
+    },
+    {
+        "codigo": "114300017",
+        "nome": "Microcontroladores",
+        "semestre_ideal": 5,
+        "pre_requisitos": ["114300014"]
+    },
+    {
+        "codigo": "114300021",
+        "nome": "Sistemas Embarcados",
+        "semestre_ideal": 5,
+        "pre_requisitos": ["114300017"]
+    },
+    {
+        "codigo": "114200316",
+        "nome": "Circuitos Eletrônicos",
+        "semestre_ideal": 5,
+        "pre_requisitos": ["114300014"]
+    },
+    {
+        "codigo": "114100009",
+        "nome": "Fenômenos de Transportes",
+        "semestre_ideal": 5,
+        "pre_requisitos": ["114300004"]
+    },
+    {
+        "codigo": "114200336",
+        "nome": "Mecânica dos Sólidos",
+        "semestre_ideal": 5,
+        "pre_requisitos": ["114300004"]
+    },
+    {
+        "codigo": "114200320",
+        "nome": "Ciência dos Materiais",
+        "semestre_ideal": 5,
+        "pre_requisitos": ["114300004"]
+    },
+    {
+        "codigo": "114200333",
+        "nome": "Atitude Empreendedora",
+        "semestre_ideal": 6,
+        "pre_requisitos": []
+    },
+    {
+        "codigo": "114200306",
+        "nome": "Escrita Científica",
+        "semestre_ideal": 6,
+        "pre_requisitos": []
+    },
+    {
+        "codigo": "114200324",
+        "nome": "Modelagem Gráfica",
+        "semestre_ideal": 6,
+        "pre_requisitos": ["114300005"]
+    },
+    {
+        "codigo": "114200329",
+        "nome": "Matemática Financeira",
+        "semestre_ideal": 6,
+        "pre_requisitos": []
+    },
+    {
+        "codigo": "114200398",
+        "nome": "Introdução aos Sistemas de Controle",
+        "semestre_ideal": 6,
+        "pre_requisitos": ["114300016"]
+    },
+    {
+        "codigo": "114300019",
+        "nome": "Processamento de Sinais",
+        "semestre_ideal": 6,
+        "pre_requisitos": ["114300016"]
+    },
+    {
+        "codigo": "114300016",
+        "nome": "Sinais e Sistemas",
+        "semestre_ideal": 6,
+        "pre_requisitos": ["114100007"]
+    },
+    {
+        "codigo": "114300022",
+        "nome": "Automação Industrial I",
+        "semestre_ideal": 7,
+        "pre_requisitos": ["114300018"]
+    },
+    {
+        "codigo": "114300018",
+        "nome": "Instrumentação Industrial I",
+        "semestre_ideal": 7,
+        "pre_requisitos": ["114200311", "114200316"]
+    },
+    {
+        "codigo": "114200326",
+        "nome": "Arquitetura de Computadores",
+        "semestre_ideal": 7,
+        "pre_requisitos": ["114300023", "114300014"]
+    },
+    {
+        "codigo": "114200335",
+        "nome": "Laboratório de Arquitetura de Computadores",
+        "semestre_ideal": 7,
+        "pre_requisitos": ["114200326", "114200313"]
+    },
+    {
+        "codigo": "114200342",
+        "nome": "Projeto de Engenharia e Computação I",
+        "semestre_ideal": 8,
+        "pre_requisitos": ["114300066", "114300030", "114300017", "114200325", "114200331"]
+    },
+    {
+        "codigo": "114200399",
+        "nome": "Projeto de Engenharia e Computação II",
+        "semestre_ideal": 9,
+        "pre_requisitos": ["114200342"]
+    },
+    {
+        "codigo": "114200400",
+        "nome": "Trabalho de Conclusão de Curso I",
+        "semestre_ideal": 9,
+        "pre_requisitos": []
+    },
+    {
+        "codigo": "114200401",
+        "nome": "Trabalho de Conclusão de Curso II",
+        "semestre_ideal": 10,
+        "pre_requisitos": ["114200400"]
+    }
+]
